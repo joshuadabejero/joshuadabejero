@@ -1,87 +1,147 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <v-card class="logo py-4 d-flex justify-center">
-        <NuxtLogo />
-        <VuetifyLogo />
-      </v-card>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>
-            Vuetify is a progressive Material Design component framework for
-            Vue.js. It was designed to empower developers to create amazing
-            applications.
-          </p>
-          <p>
-            For more information on Vuetify, check out the
-            <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation </a
-            >.
-          </p>
-          <p>
-            If you have questions, please join the official
-            <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord </a
-            >.
-          </p>
-          <p>
-            Find a bug? Report it on the github
-            <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board </a
-            >.
-          </p>
-          <p>
-            Thank you for developing with Vuetify and I look forward to bringing
-            more exciting features in the future.
-          </p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3" />
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br />
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="primary" nuxt to="/inspire"> Continue </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
+  <div>
+    <v-img
+      class="elevation-5 align-center"
+      height="500"
+      :src="require(`~/assets/img/desk.jpg`)"
+    >
+      <div class="text-center text-sm-left ml-sm-5 ml-md-12 black--text">
+        <p class="display-4">
+          <mark>I am</mark>
+          <span class="display-3"><mark> a developer }</mark></span>
+        </p>
+        <p class="sub-heading ml-sm-6"><mark>Welcome to my website!</mark></p>
+      </div>
+    </v-img>
+    <intermediatory-text :payload="intermediatory[0]"></intermediatory-text>
+    <v-parallax class="elevation-5" :src="require(`~/assets/img/material.jpg`)">
+      <v-img
+        class="ml-md-12"
+        width="500"
+        height="500"
+        :src="require(`~/assets/img/splash.png`)"
+      ></v-img>
+    </v-parallax>
+    <intermediatory-text :payload="intermediatory[1]"></intermediatory-text>
+    <v-row justify="center">
+      <v-col
+        v-for="pillar in pillars"
+        :key="pillar.title"
+        class="d-flex"
+        cols="auto"
+      >
+        <v-card
+          class="elevation-5 text-center mx-auto overflow-hidden"
+          style="max-width: 380px"
+        >
+          <v-img height="200px" :src="pillar.image"></v-img>
+          <v-card-title class="justify-center">{{ pillar.title }}</v-card-title>
+          <v-card-text>{{ pillar.description }}</v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+    <intermediatory-text :payload="intermediatory[2]"></intermediatory-text>
+    <v-row justify="center">
+      <v-col
+        v-for="technology in getTechonologies.technologies"
+        :key="technology.name"
+        class="d-flex"
+        cols="auto"
+      >
+        <v-tooltip bottom>
+          <template #activator="{ on }">
+            <v-btn icon fab x-large v-on="on">
+              {{ technology.name }}
+              <v-icon v-if="technology.icon">{{ technology.icon }}</v-icon>
+            </v-btn>
+          </template>
+          <span>{{ technology.description }}</span>
+        </v-tooltip>
+      </v-col>
+    </v-row>
+    <intermediatory-text :payload="intermediatory[3]"></intermediatory-text>
+    <v-timeline :dense="$vuetify.breakpoint.smAndDown">
+      <v-timeline-item
+        v-for="company in getCompanies.companies"
+        :key="company.key"
+      >
+        <span slot="opposite">{{ company.date }}</span>
+        <v-card class="elevation-5">
+          <v-card-title class="headline">{{ company.position }}</v-card-title>
+          <v-card-subtitle class="subtitle-1">{{
+            company.name
+          }}</v-card-subtitle>
+          <v-card-text>{{ company.description }}</v-card-text>
+        </v-card>
+      </v-timeline-item>
+    </v-timeline>
+    <intermediatory-text :payload="intermediatory[4]"></intermediatory-text>
+    <div class="text-center mb-12">
+      <v-btn class="" href="/cv-resume-2020.pdf" download>Download</v-btn>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'IndexPage',
+  data() {
+    return {
+      intermediatory: [
+        {
+          title: 'Joshua Abejero',
+          description: 'Your favorite web developer',
+        },
+        {
+          title: 'Coding is life',
+          description: 'I love creating web applications',
+        },
+        {
+          title: 'Technologies',
+          description: 'Specific technology for specific task',
+        },
+        {
+          title: 'Experience',
+          description: 'Knowledge is power',
+        },
+        {
+          title: 'CV / Resume',
+          description: 'Click the download link below!',
+        },
+      ],
+      pillars: [
+        {
+          image: require(`~/assets/img/api-development.jpg`),
+          title: 'API Development',
+          description: 'Building Restful APIs with ExpressJs',
+        },
+        {
+          image: require(`~/assets/img/web-development.jpg`),
+          title: 'Web Development',
+          description: 'Building Web Applications and eCommerce sites',
+        },
+        {
+          image: require(`~/assets/img/system-development.jpg`),
+          title: 'System Development',
+          description: 'Building System Applications for Business Solutions',
+        },
+      ],
+      technologies: [],
+    }
+  },
+  computed: {
+    getTechonologies() {
+      return this.$store.state.technologies
+    },
+    getCompanies() {
+      return this.$store.state.companies
+    },
+  },
 }
 </script>
+
+<style scoped>
+mark {
+  background-color: white;
+}
+</style>
