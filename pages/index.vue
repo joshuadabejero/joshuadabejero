@@ -129,6 +129,11 @@ export default {
       technologies: [],
     }
   },
+  head() {
+    return {
+      title: 'Home',
+    }
+  },
   computed: {
     getTechonologies() {
       return this.$store.state.technologies
