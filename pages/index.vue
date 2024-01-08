@@ -77,7 +77,7 @@
     </v-timeline>
     <intermediatory-text :payload="intermediatory[4]"></intermediatory-text>
     <div class="text-center mb-12">
-      <v-btn class="" href="/cv-resume-2020.pdf" download>Download</v-btn>
+      <v-btn class="" href="/cv-resume-2024.pdf" download>Download</v-btn>
     </div>
   </div>
 </template>
