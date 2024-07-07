@@ -6,7 +6,7 @@
 - 🎓 Bachellor of Science in Information Technology in Camarines Norte State College.
 - 🏢 Currently working in Home Credit Philippines.
 - 🌱 Building my own history through hardship in IT Industry.
-- 🌏 Here's my personal website, https://joshuadabejero.devnotize.com/.
+- 🌏 Here's my personal website, https://joshuadabejero.netlify.app/.
 - ✉️ Feel free to send me an email, joshuadabejero@gmail.com.
 
 ### 💻 Tech Stack
