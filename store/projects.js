@@ -46,6 +46,20 @@ export const state = () => ({
       title: 'Torn City 3rd Party',
       slug: 'tc3p',
     },
+    {
+      description:
+        'Home Credit PH - Marketplace is a loaning web application made using Laravel and VueJs.',
+      thumbnail: require(`~/assets/img/projects-mpl.png`),
+      title: 'Home Credit PH - Marketplace',
+      slug: 'hcphmpl',
+    },
+    {
+      description:
+        'Home Credit PH - Shoppingmall is a loaning web application made using Magnolia CMS and ReactJs.',
+      thumbnail: require(`~/assets/img/projects-smph.png`),
+      title: 'Home Credit PH - Shoppingmall',
+      slug: 'hcphsmph',
+    },
   ],
   project: [
     {
@@ -100,6 +114,22 @@ export const state = () => ({
       slug: 'tc3p',
       title: 'Torn City 3rd Party',
       url: 'https://tc3p.netlify.com/',
+    },
+    {
+      description:
+        'Home Credit PH - Marketplace is a loaning web application made using Laravel and VueJs.',
+      image: require(`~/assets/img/projects-mpl.png`),
+      slug: 'hcphmpl',
+      title: 'Home Credit PH - Marketplace',
+      url: 'https://marketplace.homecredit.ph/',
+    },
+    {
+      description:
+        'Home Credit PH - Shoppingmall is a loaning web application made using Magnolia CMS and ReactJs.',
+      image: require(`~/assets/img/projects-smph.png`),
+      slug: 'hcphsmph',
+      title: 'Home Credit PH - Shoppingmall',
+      url: 'https://beta.shoppingmall.ph/',
     },
   ],
 })
