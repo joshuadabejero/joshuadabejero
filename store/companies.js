@@ -1,8 +1,15 @@
 export const state = () => ({
   companies: [
     {
+      name: 'Loft Spaces, Inc.',
+      date: 'September 2024 - Present',
+      description:
+        'Responsible in maintaining server side activity, including hosting along with regular site maintenance for our clients. Experienced in Website Development, Server Management and passionate about delivering high-quality work.',
+      position: 'Technical Web Developer',
+    },
+    {
       name: 'Home Credit Philippines',
-      date: 'August 2021 - Present',
+      date: 'August 2021 - July 2024',
       description:
         'Responsible in building and maintaining of Home Credit Market Place (MPL). Development of new software according to different business requirements. Ensure quality of deliverables by adhering to project standards. Perform code review of programs written by peers. Perform unit and system integration testing. Resolve complex system bugs and issues identified during all phases of testing. Monitoring and configuration of deployed applications. Maintenance of deployed applications according to necessary changes.',
       position: 'IT Web Developer',
