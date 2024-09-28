@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/projects/hrbliz-bfs-api", {data:[{}],fetch:{},mutations:[]});
