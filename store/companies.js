@@ -1,13 +1,6 @@
 export const state = () => ({
   companies: [
     {
-      name: 'Loft Spaces, Inc.',
-      date: 'September 2024 - Present',
-      description:
-        'Responsible in maintaining server side activity, including hosting along with regular site maintenance for our clients. Experienced in Website Development, Server Management and passionate about delivering high-quality work.',
-      position: 'Technical Web Developer',
-    },
-    {
       name: 'Home Credit Philippines',
       date: 'August 2021 - July 2024',
       description:
