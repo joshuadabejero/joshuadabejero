@@ -1,0 +1,38 @@
+/* Override Elements */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Override Font Family */
+:root {
+  --v-theme-font-family: 'inter', 'inter', sans-serif;
+}
+
+.v-application {
+  font-family: var(--v-theme-font-family) !important;
+}
+
+/* Tailwind-style container widths for v-container */
+.v-container {
+  max-width: 100%;
+}
+
+@media (min-width: 640px) { /* sm */
+  .v-container { max-width: 640px !important; }
+}
+
+@media (min-width: 768px) { /* md */
+  .v-container { max-width: 768px !important; }
+}
+
+@media (min-width: 1024px) { /* lg */
+  .v-container { max-width: 1024px !important; }
+}
+
+@media (min-width: 1280px) { /* xl */
+  .v-container { max-width: 1280px !important; }
+}
+
+@media (min-width: 1536px) { /* 2xl */
+  .v-container { max-width: 1536px !important; }
+}

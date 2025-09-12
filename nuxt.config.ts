@@ -2,9 +2,17 @@
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
+  css: ["@/assets/css/vuetify-overrides.css"],
   devtools: { enabled: true },
   build: {
     transpile: ["vuetify"],
+  },
+  googleFonts: {
+    families: {
+      Inter: [400, 500, 600, 700],
+    },
+    display: "swap",
+    download: true,
   },
   modules: [
     (_options, nuxt) => {
@@ -14,7 +22,7 @@ export default defineNuxtConfig({
       });
     },
     "@pinia/nuxt",
-    //...
+    "@nuxtjs/google-fonts",
   ],
   vite: {
     vue: {
