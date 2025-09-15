@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <AppHeader />
     <v-main>
       <NuxtPage />
     </v-main>
