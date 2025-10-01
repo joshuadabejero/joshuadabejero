@@ -2,10 +2,6 @@ import { defineStore } from "pinia";
 
 export const useProfileStore = defineStore("profile", {
   state: () => ({
-    sections: {
-      title: "",
-      description: "",
-    },
     projects: {
       title: "",
       description: "",
@@ -217,6 +213,20 @@ export const useProfileStore = defineStore("profile", {
           "Using Qualys for vulnerability scanning and splunk for monitoring.",
         ],
         address: "Taguig City",
+      },
+    ],
+    schedules: [
+      {
+        day: "Monday - Friday",
+        time: "9:00 AM - 6:00 PM",
+      },
+      {
+        day: "Saturday",
+        time: "10:00 AM - 4:00 PM",
+      },
+      {
+        day: "Sunday",
+        time: "Closed",
       },
     ],
   }),
