@@ -1,4 +1,7 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { useProfileStore } from "~/store/profileStore";
+const profileStore = useProfileStore();
+</script>
 <template>
   <section id="contact" class="contact">
     <v-container class="contact__container">
@@ -37,8 +40,34 @@
                   label="Your message here..."
                   variant="outlined"
                   color="#6366f1"
+                  auto-grow
                 ></v-textarea>
-                <v-btn block>Send Message</v-btn>
+                <v-btn size="large" :ripple="false" color="#5850ec" block>
+                  <template v-slot:prepend>
+                    <v-icon>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-send"
+                        aria-hidden="true"
+                        data-id="element-58"
+                      >
+                        <path
+                          d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"
+                        ></path>
+                        <path d="m21.854 2.147-10.94 10.939"></path>
+                      </svg>
+                    </v-icon>
+                  </template>
+                  <span> Send Message </span>
+                </v-btn>
               </v-form>
             </v-sheet>
           </v-card>
@@ -131,14 +160,16 @@
             <v-card-title class="contact__working-hours-title"
               >Working Hours</v-card-title
             >
-            <v-table>
-              <tbody>
-                <tr>
-                  <td>Monday - Friday</td>
-                  <td>Saturday</td>
-                </tr>
-              </tbody>
-            </v-table>
+            <div class="contact__working-hours--wrapper">
+              <div
+                v-for="(schedule, index) in profileStore.schedules"
+                :key="index"
+                class="working-hours"
+              >
+                <span>{{ schedule.day }}</span>
+                <span>{{ schedule.time }}</span>
+              </div>
+            </div>
           </v-card>
         </div>
       </div>
@@ -187,6 +218,33 @@
     display: grid;
     gap: 3rem;
   }
+  &__card {
+    ::v-deep(.v-btn) {
+      color: #ffffff;
+      text-transform: capitalize;
+      font-weight: 500;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      border-radius: 0.375rem;
+      // gap: 0.5rem;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      display: flex;
+      background-image: linear-gradient(to right, #5850ec, #7e3af2);
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 0.15s;
+      &:hover {
+        transform: translateY(-0.25rem);
+        background-color: #5145cd !important;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
   &__card, // Removes redundancy
   &__information,
   &__working-hours {
@@ -226,6 +284,23 @@
   }
   &__information-details > * + * {
     margin-top: 1.5rem;
+  }
+  &__working-hours .working-hours {
+    padding-bottom: 0.75rem;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    &:nth-child(-n + 2) {
+      border-bottom: 1px solid;
+      border-color: #e5e7eb;
+    }
+    & ~ .working-hours {
+      margin-top: 1rem;
+      margin-bottom: 0;
+    }
+    span:nth-child(2) {
+      color: #4b5563;
+    }
   }
 }
 </style>
