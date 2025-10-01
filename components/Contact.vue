@@ -268,6 +268,18 @@ const profileStore = useProfileStore();
       display: flex;
       align-items: flex-start;
       gap: 1rem;
+      div {
+        h4 {
+          font-weight: 500;
+          font-size: 1.125rem;
+          line-height: 1.75rem;
+          margin-bottom: 0.25rem;
+          color: #1f2937;
+        }
+        p {
+          color: #4b5563;
+        }
+      }
     }
     &--wrapper:nth-child(1) .contact__information-icon {
       color: #5850ec;
@@ -297,6 +309,9 @@ const profileStore = useProfileStore();
     & ~ .working-hours {
       margin-top: 1rem;
       margin-bottom: 0;
+    }
+    &:last-child {
+      padding: 0;
     }
     span:nth-child(2) {
       color: #4b5563;
