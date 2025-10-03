@@ -224,6 +224,9 @@ const filteredProjects = computed(() => {
         &:hover {
           transform: scale(1.1);
         }
+        ::v-deep(.v-img__img--cover) {
+          object-position: top;
+        }
       }
       &__details {
         padding: 1.5rem;
