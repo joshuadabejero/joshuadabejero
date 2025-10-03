@@ -1,11 +1,130 @@
 import { defineStore } from "pinia";
+import { Category } from "~/constants/category";
 
 export const useProfileStore = defineStore("profile", {
   state: () => ({
-    projects: {
-      title: "",
-      description: "",
-    },
+    projects: [
+      {
+        title: "Alphalpha Printing Corp.",
+        description:
+          "A professional WordPress-based information website designed to showcase company services, highlight business offerings, and provide easy access to contact details.",
+        thumbnail: "aaa.jpg",
+        category: Category.CMS,
+        technologies: ["WordPress", "Custom Theme", "MySQL"],
+        link: {
+          source: "",
+          demo: "",
+        },
+      },
+      {
+        title: "Daet Medical Supply",
+        description:
+          "An eCommerce website built with WordPress and WooCommerce, providing an online platform for browsing, ordering, and managing medical supplies.",
+        thumbnail: "dms.jpg",
+        category: Category.CMS,
+        technologies: ["WordPress", "WooCommerce", "Custom Theme", "MySQL"],
+        link: {
+          source: "",
+          demo: "",
+        },
+      },
+      {
+        title: "HRbliz GE / PE",
+        description:
+          "A Human Resource Information System (HRIS) developed with Java EE and Struts 2 MVC Framework, available in both Government Edition and Private Edition to streamline employee management, payroll, and HR operations.",
+        thumbnail: "hrbliz.jpg",
+        category: Category.FULLSTACK,
+        technologies: ["Apache Struts", "Java", "JSP", "MSSQL"],
+        link: {
+          source: "",
+          demo: "",
+        },
+      },
+      {
+        title: "HRbliz GE / PE – BFS API",
+        description:
+          "A Biometric Fingerprint Devices (BFS) API for the Government Edition and Private Edition of HRbliz, providing seamless integration for employee authentication, attendance tracking, and HR management.",
+        thumbnail: "hrbliz-bfs-api.jpg",
+        category: Category.BACKEND,
+        technologies: ["C#", "IIS", "RESTful API", "MSSQL"],
+        link: {
+          source: "",
+          demo: "",
+        },
+      },
+      {
+        title: "Infinite Edge Modern Homes",
+        description:
+          "IEMH is an information website built with WordPress, designed to showcase modern home designs, highlight property features, and provide easy access to contact and inquiry details.",
+        thumbnail: "iemh.jpg",
+        category: Category.CMS,
+        technologies: ["WordPress", "Custom Theme", "MySQL"],
+        link: {
+          source: "",
+          demo: "",
+        },
+      },
+      {
+        title: "Sanitary Care Products",
+        description:
+          "SCPA is an eCommerce website built with WordPress and WooCommerce, offering a seamless online platform for browsing, ordering, and managing sanitary care products.",
+        thumbnail: "scpa.jpg",
+        category: Category.CMS,
+        technologies: ["WordPress", "Custom Theme", "MySQL"],
+        link: {
+          source: "",
+          demo: "",
+        },
+      },
+      {
+        title: "Torn City 3rd Party",
+        description:
+          "TC3P is a third-party web application that offers additional services and tools for Torn City players, enhancing gameplay and providing valuable in-game insights.",
+        thumbnail: "tc3p.jpg",
+        category: Category.FRONTEND,
+        technologies: ["Nuxt 2", "Netlify", "Torn API"],
+        link: {
+          source: "",
+          demo: "",
+        },
+      },
+      {
+        title: "Home Credit PH – Marketplace",
+        description:
+          "Home Credit PH – Marketplace is a loan management web application built with Laravel and Vue.js, enabling users to browse, apply for, and manage loans efficiently.",
+        thumbnail: "mpl.png",
+        category: Category.FULLSTACK,
+        technologies: ["Vue 2", "Laravel", "MySQL"],
+        link: {
+          source: "",
+          demo: "",
+        },
+      },
+      {
+        title: "Home Credit PH – Shoppingmall",
+        description:
+          "Home Credit PH – Shoppingmall is a loan management web application built with Magnolia CMS and React.js, providing users with an interactive platform for browsing, applying for, and managing loans.",
+        thumbnail: "smph.png",
+        category: Category.FULLSTACK,
+        technologies: ["ReactJs", "MagnoliaCMS", "MySQL"],
+        link: {
+          source: "",
+          demo: "",
+        },
+      },
+      {
+        title: "ShopLift – Interactive E-Commerce Mockup",
+        description:
+          "ShopLift is a visually designed e-commerce website mockup, showcasing a clean and modern interface with product listings, navigation, and layout interactions. Built with Vue.js and hosted on Netlify, it demonstrates the design and user experience without actual backend functionality.",
+        thumbnail: "shoplift.jpg",
+        category: Category.FRONTEND,
+        technologies: ["Nuxt 3", "Vue 3", "Fakestore API", "Netlify"],
+        link: {
+          source: "https://github.com/joshuadabejero/shoplift",
+          demo: "https://joshuadabejero-shoplift.netlify.app/",
+        },
+      },
+    ],
     technologies: [
       {
         icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6875F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor" aria-hidden="true" data-id="element-198"><rect width="20" height="14" x="2" y="3" rx="2"></rect><line x1="8" x2="16" y1="21" y2="21"></line><line x1="12" x2="12" y1="17" y2="21"></line></svg>`,
