@@ -3,5 +3,6 @@
   <About />
   <Work />
   <Technology />
+  <Projects />
   <Contact />
 </template>
