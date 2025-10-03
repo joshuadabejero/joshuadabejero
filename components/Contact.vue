@@ -71,106 +71,108 @@ const profileStore = useProfileStore();
               </v-form>
             </v-sheet>
           </v-card>
-          <v-card class="contact__information" rounded="lg">
-            <v-card-title class="contact__information-title"
-              >Contact Information</v-card-title
-            >
-            <div class="contact__information-details">
-              <div class="contact__information-icon--wrapper">
-                <div class="contact__information-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-map-pin"
-                    aria-hidden="true"
-                    data-id="element-68"
-                  >
-                    <path
-                      d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
-                    ></path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                  </svg>
-                </div>
-                <div>
-                  <h4>Location</h4>
-                  <p>Makati City, Philippines</p>
-                </div>
-              </div>
-              <div class="contact__information-icon--wrapper">
-                <div class="contact__information-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-phone"
-                    aria-hidden="true"
-                    data-id="element-74"
-                  >
-                    <path
-                      d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <h4>Phone</h4>
-                  <p>(+63) 962 494 0593</p>
-                </div>
-              </div>
-              <div class="contact__information-icon--wrapper">
-                <div class="contact__information-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-mail"
-                    aria-hidden="true"
-                    data-id="element-80"
-                  >
-                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
-                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                  </svg>
-                </div>
-                <div>
-                  <h4>Email</h4>
-                  <p>joshuadabejero@gmail.com</p>
-                </div>
-              </div>
-            </div>
-          </v-card>
-          <v-card class="contact__working-hours" rounded="lg">
-            <v-card-title class="contact__working-hours-title"
-              >Working Hours</v-card-title
-            >
-            <div class="contact__working-hours--wrapper">
-              <div
-                v-for="(schedule, index) in profileStore.schedules"
-                :key="index"
-                class="working-hours"
+          <div>
+            <v-card class="contact__information" rounded="lg">
+              <v-card-title class="contact__information-title"
+                >Contact Information</v-card-title
               >
-                <span>{{ schedule.day }}</span>
-                <span>{{ schedule.time }}</span>
+              <div class="contact__information-details">
+                <div class="contact__information-icon--wrapper">
+                  <div class="contact__information-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-map-pin"
+                      aria-hidden="true"
+                      data-id="element-68"
+                    >
+                      <path
+                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                      ></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>Location</h4>
+                    <p>Makati City, Philippines</p>
+                  </div>
+                </div>
+                <div class="contact__information-icon--wrapper">
+                  <div class="contact__information-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-phone"
+                      aria-hidden="true"
+                      data-id="element-74"
+                    >
+                      <path
+                        d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>Phone</h4>
+                    <p>(+63) 962 494 0593</p>
+                  </div>
+                </div>
+                <div class="contact__information-icon--wrapper">
+                  <div class="contact__information-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-mail"
+                      aria-hidden="true"
+                      data-id="element-80"
+                    >
+                      <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                      <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>Email</h4>
+                    <p>joshuadabejero@gmail.com</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </v-card>
+            </v-card>
+            <v-card class="contact__working-hours" rounded="lg">
+              <v-card-title class="contact__working-hours-title"
+                >Working Hours</v-card-title
+              >
+              <div class="contact__working-hours--wrapper">
+                <div
+                  v-for="(schedule, index) in profileStore.schedules"
+                  :key="index"
+                  class="working-hours"
+                >
+                  <span>{{ schedule.day }}</span>
+                  <span>{{ schedule.time }}</span>
+                </div>
+              </div>
+            </v-card>
+          </div>
         </div>
       </div>
     </v-container>
@@ -217,6 +219,9 @@ const profileStore = useProfileStore();
     grid-template-columns: repeat(1, minmax(0px, 1fr));
     display: grid;
     gap: 3rem;
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
   &__card {
     ::v-deep(.v-btn) {
@@ -259,6 +264,9 @@ const profileStore = useProfileStore();
       padding: 0;
       margin-bottom: 1.5rem;
     }
+  }
+  &__information {
+    margin-bottom: 2rem;
   }
   &__information-icon {
     padding: 0.75rem;
