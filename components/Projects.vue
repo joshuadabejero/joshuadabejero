@@ -84,8 +84,17 @@ const filteredProjects = computed(() => {
                   {{ technology }}
                 </v-chip>
               </div>
-              <div class="project__actions">
-                <v-btn variant="text" :ripple="false">
+              <div
+                v-if="project.link.demo && project.link.source"
+                class="project__actions"
+              >
+                <v-btn
+                  v-if="project.link.demo"
+                  variant="text"
+                  :ripple="false"
+                  target="_blank"
+                  :href="project.link.demo"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -108,7 +117,13 @@ const filteredProjects = computed(() => {
                   </svg>
                   <span>Live Demo</span>
                 </v-btn>
-                <v-btn variant="text" :ripple="false">
+                <v-btn
+                  v-if="project.link.source"
+                  variant="text"
+                  :ripple="false"
+                  target="_blank"
+                  :href="project.link.source"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
