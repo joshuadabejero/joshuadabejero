@@ -20,7 +20,7 @@ const filteredProjects = computed(() => {
 });
 </script>
 <template>
-  <section class="projects">
+  <section id="projects" class="projects">
     <v-container class="projects__container">
       <div class="projects__content">
         <div class="projects__headline">
