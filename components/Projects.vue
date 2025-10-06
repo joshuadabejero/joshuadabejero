@@ -157,7 +157,7 @@ const filteredProjects = computed(() => {
 .projects {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  background-color: #f9fafb;
+  background-color: #ffffff;
   &__container {
     padding-left: 1rem;
     padding-right: 1rem;
