@@ -78,7 +78,7 @@ onBeforeUnmount(() => {
 
 <style lang="scss" scoped>
 .transparent {
-  background-color: transparent !important;
+  background-color: #f9fafb !important;
   box-shadow: none !important;
 }
 
