@@ -104,12 +104,12 @@
         <div class="footer__services">
           <h3>Services</h3>
           <ul>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Frontend Development</a></li>
-            <li><a href="#">Backend Development</a></li>
-            <li><a href="#">WordPress Development</a></li>
-            <li><a href="#">CMS Integration</a></li>
-            <li><a href="#">Database Design</a></li>
+            <li><a href="#projects">Web Development</a></li>
+            <li><a href="#projects">Frontend Development</a></li>
+            <li><a href="#projects">Backend Development</a></li>
+            <li><a href="#projects">WordPress Development</a></li>
+            <li><a href="#projects">CMS Integration</a></li>
+            <li><a href="#projects">Database Design</a></li>
           </ul>
         </div>
       </div>
@@ -127,8 +127,6 @@
   background-color: #111827;
   padding-top: 4rem;
   padding-bottom: 2rem;
-  &__container {
-  }
   &__content {
     gap: 3rem;
     grid-template-columns: repeat(1, minmax(0, 1fr));

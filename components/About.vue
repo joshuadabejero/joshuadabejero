@@ -140,13 +140,17 @@
                 <span class="ml-1">Project Management</span>
               </div>
             </div>
-            <v-btn
-              height="48"
-              min-width="200"
-              class="about__button"
-              :ripple="false"
-              >Let's Work Together</v-btn
-            >
+            <a href="#contact">
+              <!-- Temporary Fix wrap in Anchor Tag -->
+              <v-btn
+                height="48"
+                min-width="200"
+                class="about__button"
+                :ripple="false"
+              >
+                Let's Work Together
+              </v-btn>
+            </a>
           </div>
         </div>
       </div>
