@@ -20,7 +20,7 @@
               min-width="142"
               color="#5850ec"
               :ripple="false"
-              to="#contact"
+              href="#contact"
               >Get in Touch</v-btn
             >
             <v-btn
@@ -30,7 +30,7 @@
               elevation="0"
               variant="outlined"
               color="#5850ec"
-              to="#projects"
+              href="#projects"
               >View My Work</v-btn
             >
           </div>
