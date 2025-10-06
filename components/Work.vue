@@ -17,7 +17,7 @@ watch(mdAndUp, (val) => {
 </script>
 
 <template>
-  <section class="work">
+  <section id="work" class="work">
     <v-container class="work__container">
       <div class="work__content">
         <div class="work__headline">
