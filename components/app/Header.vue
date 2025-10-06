@@ -1,5 +1,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
+import { useProfileStore } from "~/store/profileStore";
+const profileStore = useProfileStore();
 
 const isTop = ref(true);
 
@@ -22,6 +24,14 @@ onBeforeUnmount(() => {
     <v-app-bar-title>
       <span>JOSHUA</span>
     </v-app-bar-title>
+    <nav class="header__navigation">
+      <a
+        v-for="(navigation, index) in profileStore.navigations"
+        :key="index"
+        :href="`#${navigation.to}`"
+        >{{ navigation.name }}</a
+      >
+    </nav>
     <div class="header__navigation-button">
       <v-btn icon size="small" :ripple="false">
         <svg
@@ -95,6 +105,27 @@ header {
   }
   ::v-deep(.v-btn:last-child) {
     margin-left: 1rem;
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  nav {
+    display: none;
+    @media (min-width: 768px) {
+      display: flex;
+    }
+    & > :not([hidden]) ~ :not([hidden]) {
+      margin-left: 2rem; /* 8 × 0.25rem (Tailwind’s base spacing unit) */
+    }
+    a {
+      color: #374151;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    &:hover {
+      color: #5850ec;
+    }
   }
 }
 </style>
