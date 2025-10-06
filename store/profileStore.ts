@@ -12,27 +12,27 @@ export const useProfileStore = defineStore("profile", {
       {
         name: "About",
         to: "about",
-        icon: "mdi-home",
+        icon: "mdi-information",
       },
       {
         name: "Experience",
         to: "work",
-        icon: "mdi-home",
+        icon: "mdi-briefcase",
       },
       {
         name: "Skills",
         to: "technology",
-        icon: "mdi-home",
+        icon: "mdi-lightning-bolt",
       },
       {
         name: "Projects",
         to: "projects",
-        icon: "mdi-home",
+        icon: "mdi-folder",
       },
       {
         name: "Contact",
         to: "contact",
-        icon: "mdi-home",
+        icon: "mdi-account-box",
       },
     ],
     projects: [
