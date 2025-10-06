@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, watch } from "vue";
 import { useProfileStore } from "~/store/profileStore";
 const profileStore = useProfileStore();
 
@@ -16,6 +16,13 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   window.removeEventListener("scroll", handleScroll);
+});
+
+const drawer = ref(false);
+const group = ref(null);
+
+watch(group, () => {
+  drawer.value = false;
 });
 </script>
 
@@ -52,7 +59,7 @@ onBeforeUnmount(() => {
         </svg>
       </v-btn>
 
-      <v-btn icon size="small" :ripple="false">
+      <v-btn icon size="small" :ripple="false" @click.stop="drawer = !drawer">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -74,6 +81,25 @@ onBeforeUnmount(() => {
       </v-btn>
     </div>
   </v-app-bar>
+  <v-navigation-drawer
+    class="header__mobile-navigation"
+    v-model="drawer"
+    :location="$vuetify.display.mobile ? 'right' : undefined"
+    temporary
+  >
+    <v-list>
+      <v-list-item
+        class="mobile-navigation__button"
+        v-for="(navigation, index) in profileStore.navigations"
+        :key="index"
+        :prepend-icon="navigation.icon"
+        :title="navigation.name"
+        :to="`#${navigation.to}`"
+        :active="false"
+        active-class=""
+      ></v-list-item>
+    </v-list>
+  </v-navigation-drawer>
 </template>
 
 <style lang="scss" scoped>
@@ -122,9 +148,9 @@ header {
       color: #374151;
       font-weight: 500;
       text-decoration: none;
-    }
-    &:hover {
-      color: #5850ec;
+      &:hover {
+        color: #5850ec;
+      }
     }
   }
 }
