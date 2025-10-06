@@ -200,6 +200,10 @@ body.light {
   .button__light {
     display: none;
   }
+  .button__dark {
+    // Override to hide DARK MODE button (still not finished)
+    display: none;
+  }
 }
 
 body.light.dark {

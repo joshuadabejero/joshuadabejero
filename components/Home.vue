@@ -330,4 +330,11 @@
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
+
+// For continuation of DARK MODE
+body.dark {
+  section.home {
+    background: linear-gradient(to right, #111827, #1f2937, #1e1b4b);
+  }
+}
 </style>
