@@ -3,6 +3,38 @@ import { Category } from "~/constants/category";
 
 export const useProfileStore = defineStore("profile", {
   state: () => ({
+    navigations: [
+      {
+        name: "Home",
+        to: "home",
+        icon: "mdi-home",
+      },
+      {
+        name: "About",
+        to: "about",
+        icon: "mdi-home",
+      },
+      {
+        name: "Experience",
+        to: "work",
+        icon: "mdi-home",
+      },
+      {
+        name: "Skills",
+        to: "technology",
+        icon: "mdi-home",
+      },
+      {
+        name: "Projects",
+        to: "projects",
+        icon: "mdi-home",
+      },
+      {
+        name: "Contact",
+        to: "contact",
+        icon: "mdi-home",
+      },
+    ],
     projects: [
       {
         title: "Alphalpha Printing Corp.",
