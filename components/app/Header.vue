@@ -1,7 +1,9 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, watch } from "vue";
 import { useProfileStore } from "~/store/profileStore";
+import { useThemeStore } from "~/store/theme";
 const profileStore = useProfileStore();
+const themeStore = useThemeStore();
 
 const isTop = ref(true);
 
@@ -40,7 +42,13 @@ watch(group, () => {
       >
     </nav>
     <div class="header__navigation-button">
-      <v-btn icon size="small" :ripple="false">
+      <v-btn
+        class="button__dark"
+        icon
+        size="small"
+        :ripple="false"
+        @click="themeStore.toggleDark()"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -56,6 +64,39 @@ watch(group, () => {
           data-id="element-137"
         >
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+      </v-btn>
+
+      <v-btn
+        class="button__light"
+        icon
+        size="small"
+        :ripple="false"
+        @click="themeStore.toggleDark()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-sun text-yellow-400"
+          aria-hidden="true"
+          data-id="element-136"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="m4.93 4.93 1.41 1.41"></path>
+          <path d="m17.66 17.66 1.41 1.41"></path>
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+          <path d="m6.34 17.66-1.41 1.41"></path>
+          <path d="m19.07 4.93-1.41 1.41"></path>
         </svg>
       </v-btn>
 
@@ -152,6 +193,21 @@ header {
         color: #5850ec;
       }
     }
+  }
+}
+
+body.light {
+  .button__light {
+    display: none;
+  }
+}
+
+body.light.dark {
+  .button__dark {
+    display: none;
+  }
+  .button__light {
+    display: flex;
   }
 }
 </style>
