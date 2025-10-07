@@ -386,11 +386,26 @@ export const useProfileStore = defineStore("profile", {
   },
   actions: {
     formatMonthYear(dateStr: string | Date): string {
-      const date = new Date(dateStr);
+      if (!dateStr) return "";
+
+      // If it's already a Date object, keep it
+      let date: Date;
+      if (dateStr instanceof Date) {
+        date = dateStr;
+      } else {
+        // Capitalize the first letter of month names (e.g., may -> May)
+        const normalized = dateStr
+          .trim()
+          .replace(/^([a-z])/, (_, c) => c.toUpperCase())
+          // add a fallback day to help parsing ("May 2018" → "May 1, 2018")
+          .replace(/^([A-Za-z]+ \d{4})$/, "$1 1");
+
+        date = new Date(normalized);
+      }
 
       if (isNaN(date.getTime())) {
         console.warn("Invalid date:", dateStr);
-        return "";
+        return dateStr.toString(); // fallback: show original string
       }
 
       return date.toLocaleString("en-US", {
