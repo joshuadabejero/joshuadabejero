@@ -37,7 +37,7 @@ watch(mdAndUp, (val) => {
             :key="index"
             dot-color="#e0e7ff"
             icon-color="#9061f9"
-            icon="mdi-home"
+            icon="mdi-briefcase"
             fill-dot
           >
             <v-card class="experience">
