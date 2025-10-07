@@ -16,6 +16,8 @@
               color="#1F2937"
               :ripple="false"
               size="x-small"
+              target="_blank"
+              href="https://www.linkedin.com/in/joshua-abejero-898342129/"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -44,24 +46,25 @@
               color="#1F2937"
               :ripple="false"
               size="x-small"
+              target="_blank"
+              href="https://www.facebook.com/joshuadabejero"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="24"
+                height="24"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="lucide lucide-twitter text-white"
+                class="lucide lucide-facebook text-gray-700 dark:text-gray-300"
                 aria-hidden="true"
-                data-id="element-108"
               >
                 <path
-                  d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
-                ></path>
+                  d="M15 3h-2c-1.1 0-2 .9-2 2v3H9v3h2v8h3v-8h2.5l.5-3H14V5c0-.3.2-.5.5-.5H15V3z"
+                />
               </svg>
             </v-btn>
             <v-btn
@@ -70,6 +73,8 @@
               color="#1F2937"
               :ripple="false"
               size="x-small"
+              target="_blank"
+              :href="'mailto:joshuadabejero@email.com'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
