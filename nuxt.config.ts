@@ -1,6 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 export default defineNuxtConfig({
+  app: {
+    head: {
+      title: "joshuadabejero@dev",
+    },
+  },
   compatibilityDate: "2025-05-15",
   css: ["@/assets/css/vuetify-overrides.css"],
   devtools: { enabled: true },
