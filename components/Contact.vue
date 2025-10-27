@@ -42,7 +42,13 @@ const profileStore = useProfileStore();
                   color="#6366f1"
                   auto-grow
                 ></v-textarea>
-                <v-btn size="large" :ripple="false" color="#5850ec" block>
+                <v-btn
+                  class="button__send-message"
+                  size="large"
+                  :ripple="false"
+                  color="#5850ec"
+                  block
+                >
                   <template v-slot:prepend>
                     <v-icon>
                       <svg
@@ -67,6 +73,21 @@ const profileStore = useProfileStore();
                     </v-icon>
                   </template>
                   <span> Send Message </span>
+                </v-btn>
+
+                <v-btn
+                  size="large"
+                  :ripple="false"
+                  variant="outlined"
+                  style="color: #5850ec; caret-color: #5850ec; margin-top: 1rem"
+                  block
+                  href="/files/cv-resume-2025.pdf"
+                  download
+                >
+                  <template v-slot:prepend>
+                    <v-icon> mdi-download-box-outline </v-icon>
+                  </template>
+                  <span> Download CV </span>
                 </v-btn>
               </v-form>
             </v-sheet>
@@ -224,7 +245,7 @@ const profileStore = useProfileStore();
     }
   }
   &__card {
-    ::v-deep(.v-btn) {
+    ::v-deep(.v-btn:first-child) {
       color: #ffffff;
       text-transform: capitalize;
       font-weight: 500;
@@ -242,12 +263,12 @@ const profileStore = useProfileStore();
       transition-property: all;
       transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       transition-duration: 0.15s;
-      &:hover {
-        transform: translateY(-0.25rem);
-        background-color: #5145cd !important;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-          0 8px 10px -6px rgba(0, 0, 0, 0.1);
-      }
+    }
+    .button__send-message:hover {
+      transform: translateY(-0.25rem);
+      background-color: #5145cd !important;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 8px 10px -6px rgba(0, 0, 0, 0.1);
     }
   }
   &__card, // Removes redundancy
