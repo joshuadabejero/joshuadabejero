@@ -26,7 +26,7 @@
           <div class="about__details">
             <h1>Transforming Ideas into Digital Reality</h1>
             <p>
-              With over 8 years of experience in web development, I specialize
+              With over 6 years of experience in web development, I specialize
               in creating robust and scalable applications using modern
               technologies. My approach combines technical expertise with
               creative problem-solving to deliver exceptional digital

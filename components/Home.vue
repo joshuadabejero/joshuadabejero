@@ -131,7 +131,7 @@
             ></v-img
           ></v-avatar>
           <div class="home__image-description">
-            <p>8+ Years Experience</p>
+            <p>6+ Years Experience</p>
           </div>
         </div>
       </div>
