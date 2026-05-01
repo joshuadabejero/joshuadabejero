@@ -81,7 +81,7 @@ const profileStore = useProfileStore();
                   variant="outlined"
                   style="color: #5850ec; caret-color: #5850ec; margin-top: 1rem"
                   block
-                  href="/files/cv-resume-2025.pdf"
+                  href="/files/cv-resume.pdf"
                   download
                 >
                   <template v-slot:prepend>
@@ -267,7 +267,8 @@ const profileStore = useProfileStore();
     .button__send-message:hover {
       transform: translateY(-0.25rem);
       background-color: #5145cd !important;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      box-shadow:
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
         0 8px 10px -6px rgba(0, 0, 0, 0.1);
     }
   }
