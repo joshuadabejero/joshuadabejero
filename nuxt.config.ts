@@ -29,6 +29,14 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@nuxtjs/google-fonts",
   ],
+  runtimeConfig: {
+    public: {
+      emailjsServiceId: "",
+      emailjsTemplateId: "",
+      emailjsPublicKey: "",
+      recaptchaSiteKey: "",
+    },
+  },
   vite: {
     vue: {
       template: {

@@ -260,6 +260,11 @@
     gonzales-pe "^4.3.0"
     node-source-walk "^7.0.1"
 
+"@emailjs/browser@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@emailjs/browser/-/browser-5.0.3.tgz#e2b456aac814f5e405d653368510f7d3f5b6a8cc"
+  integrity sha512-4HGAkWdzql7mrG34ZFFj7IDJNRgtbl1+yVgHdQJ6XSfhq9gxGUHtttr4UKNi7Fk++1hMXRHy1lTeGZrkioOtsw==
+
 "@emnapi/core@^1.4.3":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@emnapi/core/-/core-1.5.0.tgz#85cd84537ec989cebb2343606a1ee663ce4edaf0"

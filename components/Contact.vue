@@ -1,6 +1,72 @@
 <script lang="ts" setup>
 import { useProfileStore } from "~/store/profileStore";
 const profileStore = useProfileStore();
+
+const { getToken } = useRecaptcha();
+
+import { contactRules } from "~/utils/validations";
+
+const config = useRuntimeConfig();
+
+const isSending = ref(false);
+const isSent = ref(false);
+const errorMessage = ref("");
+
+const contactForm = ref();
+
+const form = reactive({
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+});
+
+const formattedTime = new Date().toLocaleString();
+
+const sendMessage = async () => {
+  if (isSending.value) return;
+
+  // Validate Vuetify form first
+  const { valid } = await contactForm.value.validate();
+
+  if (!valid) return;
+
+  isSending.value = true;
+  isSent.value = false;
+  errorMessage.value = "";
+
+  try {
+    // Generate reCAPTCHA token
+    const token = await getToken("contact");
+
+    // Load browser SDK only when submitting.
+    const emailjs = await import("@emailjs/browser");
+
+    await emailjs.send(
+      config.public.emailjsServiceId,
+      config.public.emailjsTemplateId,
+      {
+        name: form.name,
+        email: form.email,
+        time: formattedTime,
+        subject: form.subject,
+        message: form.message,
+      },
+      {
+        publicKey: config.public.emailjsPublicKey,
+      },
+    );
+
+    isSent.value = true;
+
+    await contactForm.value?.reset();
+  } catch (error) {
+    console.error("Email sending failed:", error);
+    errorMessage.value = "Unable to send your message. Please try again.";
+  } finally {
+    isSending.value = false;
+  }
+};
 </script>
 <template>
   <section id="contact" class="contact">
@@ -20,27 +86,46 @@ const profileStore = useProfileStore();
               >Send Me a Message</v-card-title
             >
             <v-sheet>
-              <v-form>
+              <v-form ref="contactForm" @submit.prevent="sendMessage">
                 <v-text-field
                   label="Full Name"
                   variant="outlined"
                   color="#6366f1"
+                  v-model="form.name"
+                  :rules="contactRules.name"
+                  maxlength="100"
+                  counter
+                  required
                 ></v-text-field>
                 <v-text-field
                   label="email@example.com"
                   variant="outlined"
                   color="#6366f1"
+                  v-model="form.email"
+                  :rules="contactRules.email"
+                  maxlength="254"
+                  required
                 ></v-text-field>
                 <v-text-field
-                  label="Project Inquiry"
+                  label="Subject"
                   variant="outlined"
                   color="#6366f1"
+                  v-model="form.subject"
+                  :rules="contactRules.subject"
+                  maxlength="150"
+                  counter
+                  required
                 ></v-text-field>
                 <v-textarea
                   label="Your message here..."
                   variant="outlined"
                   color="#6366f1"
                   auto-grow
+                  v-model="form.message"
+                  :rules="contactRules.message"
+                  maxlength="5000"
+                  counter
+                  required
                 ></v-textarea>
                 <v-btn
                   class="button__send-message"
@@ -48,6 +133,9 @@ const profileStore = useProfileStore();
                   :ripple="false"
                   color="#5850ec"
                   block
+                  type="submit"
+                  :loading="isSending"
+                  :disabled="isSending"
                 >
                   <template v-slot:prepend>
                     <v-icon>
@@ -263,6 +351,9 @@ const profileStore = useProfileStore();
       transition-property: all;
       transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       transition-duration: 0.15s;
+    }
+    ::v-deep(.v-input__details) {
+      padding-bottom: 0.375rem;
     }
     .button__send-message:hover {
       transform: translateY(-0.25rem);
