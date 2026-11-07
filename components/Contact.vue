@@ -26,9 +26,7 @@ const formattedTime = new Date().toLocaleString();
 const sendMessage = async () => {
   if (isSending.value) return;
 
-  // Validate Vuetify form first
   const { valid } = await contactForm.value.validate();
-
   if (!valid) return;
 
   isSending.value = true;
@@ -36,29 +34,26 @@ const sendMessage = async () => {
   errorMessage.value = "";
 
   try {
-    // Generate reCAPTCHA token
     const token = await getToken("contact");
 
-    // Load browser SDK only when submitting.
-    const emailjs = await import("@emailjs/browser");
+    console.log("Token generated:", {
+      exists: !!token,
+      length: token?.length,
+    });
 
-    await emailjs.send(
-      config.public.emailjsServiceId,
-      config.public.emailjsTemplateId,
-      {
+    await $fetch("/api/contact", {
+      method: "POST",
+      body: {
         name: form.name,
         email: form.email,
-        time: formattedTime,
+        time: new Date().toLocaleString(),
         subject: form.subject,
         message: form.message,
+        recaptchaToken: token,
       },
-      {
-        publicKey: config.public.emailjsPublicKey,
-      },
-    );
+    });
 
     isSent.value = true;
-
     await contactForm.value?.reset();
   } catch (error) {
     console.error("Email sending failed:", error);
