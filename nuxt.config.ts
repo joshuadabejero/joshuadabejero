@@ -31,9 +31,6 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      emailjsServiceId: "",
-      emailjsTemplateId: "",
-      emailjsPublicKey: "",
       recaptchaSiteKey: "",
     },
   },
