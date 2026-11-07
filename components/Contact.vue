@@ -36,11 +36,6 @@ const sendMessage = async () => {
   try {
     const token = await getToken("contact");
 
-    console.log("Token generated:", {
-      exists: !!token,
-      length: token?.length,
-    });
-
     await $fetch("/api/contact", {
       method: "POST",
       body: {

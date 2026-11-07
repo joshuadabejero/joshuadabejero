@@ -1,17 +1,7 @@
 export default async (request) => {
-  console.log("Contact function invoked");
-  if (request.method !== "POST") {
-    return Response.json({ message: "Method not allowed." }, { status: 405 });
-  }
-
   try {
     const { name, email, time, subject, message, recaptchaToken } =
       await request.json();
-
-    console.log("Token received:", {
-      exists: !!recaptchaToken,
-      length: typeof recaptchaToken === "string" ? recaptchaToken.length : 0,
-    });
 
     if (
       !name?.trim() ||
@@ -45,15 +35,6 @@ export default async (request) => {
 
     const verification = await googleResponse.json();
 
-    console.log("reCAPTCHA verification:", {
-      success: verification.success,
-      action: verification.action,
-      hostname: verification.hostname,
-      score: verification.score,
-      errorCodes: verification["error-codes"],
-      expectedHostname: process.env.SITE_HOSTNAME,
-    });
-
     // Validate Google's response
     if (
       !verification.success ||
@@ -66,13 +47,6 @@ export default async (request) => {
         { status: 403 },
       );
     }
-
-    console.log("EmailJS configuration:", {
-      serviceId: !!process.env.EMAILJS_SERVICE_ID,
-      templateId: !!process.env.EMAILJS_TEMPLATE_ID,
-      publicKey: !!process.env.EMAILJS_PUBLIC_KEY,
-      privateKey: !!process.env.EMAILJS_PRIVATE_KEY,
-    });
 
     // Send email through EmailJS REST API
     const emailResponse = await fetch(
@@ -108,8 +82,6 @@ export default async (request) => {
 
       throw new Error(`EmailJS delivery failed (${emailResponse.status}).`);
     }
-
-    console.log("EmailJS delivery successful:", emailResponseBody);
 
     return Response.json({
       success: true,
